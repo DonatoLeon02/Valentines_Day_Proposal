@@ -9,7 +9,7 @@
         /* Additional style for the note */
         .made-with-love {
             position: fixed;
-            bottom: 10px; /* Adjust this value to move it closer to the bottom */
+            bottom: 10px;
             left: 50%;
             transform: translateX(-50%);
             text-align: center;
@@ -36,11 +36,40 @@
             <button class="btn" id="noButton" onmouseover="moveButton()">No</button>
         </div>
 
+        <!-- Audio player to play the music -->
+        <audio id="backgroundMusic" loop>
+            <source src="Styles/music.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
         <!-- Positioned closer to the bottom with GitHub link -->
         <p class="made-with-love">
             Programmed with love by Donato 💖✨. 
             <a href="https://patorjk.com/misc/scrollingtext/timewaster.php?text=I+Love+You" class="github-link" target="_blank">⭐ click here for a very important message</a>.
         </p>
     </div>
+
+    <script>
+        // JavaScript to control the audio play
+        const audioElement = document.getElementById('backgroundMusic');
+        
+        // Start the music when the page loads
+        window.onload = function() {
+            audioElement.play();
+        };
+
+        // Function to stop the audio when the user clicks "Yes"
+        function nextPage() {
+            audioElement.pause();  // Stop the music
+            audioElement.currentTime = 0;  // Reset the music to the beginning
+            // Your next page logic goes here
+        }
+        
+        // Optional: If you want the music to stop when they hover over "No"
+        function moveButton() {
+            audioElement.pause();
+        }
+    </script>
 </body>
 </html>
+
